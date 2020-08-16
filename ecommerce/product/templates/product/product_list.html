@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row align-items-start">
+            {% for product in object_list %}
+                <div class="card m-3" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ product.photo.url }}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                    <div class="row ml-1">
+                        <p class="card-text mr-1">R$</p>
+                        <p class="card-text text-success">{{ product.price }}</p>
+                    </div>
+                    <a href="#" class="btn btn-primary">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
+
+<style>
+
+</style>
