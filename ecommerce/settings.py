@@ -115,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGIN_URL = 'login'
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'product-list'
 
 # https://docs.djangoproject.com/en/2.1/ref/settings/#logout-redirect-url
 LOGOUT_REDIRECT_URL = 'home'

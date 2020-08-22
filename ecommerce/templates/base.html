@@ -10,38 +10,52 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="col-12 bg-info text-white">
-        <h1 class="pt-5 pl-5">Basic E-commerce</h1>
-        <h5 class="pb-3 pl-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit!</h5>
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
-            <ul class="navbar-nav px-4">
-                <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info pt-2 justify-between mb-3">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand pb-2" href="#">E-commerce</a>
+            <div class="collapse navbar-collapse items-menu" id="navbarNav">
+                <ul class="navbar-nav mr-3">
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <button class="btn btn-info" type="button">
+                <i class="fas fa-shopping-cart"></i>
+            </button>
+          </nav>
+    </div>
 
     <main class="container-fluid row">
-        <div class="col-2 mt-3">
+        <div class="col-2 category-menu">
             <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
-                <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-                <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
+                {% for category in object_list %}
+                    <a href="#" class="list-group-item list-group-item-action">{{ category.name }}</a>
+                {% endfor %}
             </div>
         </div>
         <div class="col-9">
@@ -51,8 +65,94 @@
         
     </main>
 
-    <footer class="col-12 bg-dark text-white mt-auto">
-        <h2 class="mx-5 my-3">Footer</h2>
-    </footer>
+<footer class="page-footer font-small indigo bg-dark text-white mt-auto">
+    <div class="container">
+      <!-- <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">About us</a>
+          </h6>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Products</a>
+          </h6>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Awards</a>
+          </h6>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Help</a>
+          </h6>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Contact</a>
+          </h6>
+        </div>
+      </div> -->
+      <hr class="rgba-white-light" style="margin: 0 15%;">
+      <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+        <div class="col-md-8 col-12 mt-5">
+          <p style="line-height: 1.7rem">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem
+            aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+            explicabo.
+            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+        </div>
+      </div>
+      <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+      <div class="row pb-3">
+        <div class="col-md-12">
+          <div class="mb-5 flex-center text-white text-center">
+            <a class="fb-ic">
+              <i class="link fab fa-facebook-f fa-lg white-text mr-4"></i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+              <i class="link fab fa-twitter fa-lg white-text mr-4"></i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic">
+              <i class="link fab fa-google-plus-g fa-lg white-text mr-4"></i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+              <i class="link fab fa-linkedin-in fa-lg white-text mr-4"></i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic">
+              <i class="link fab fa-instagram fa-lg white-text mr-4"></i>
+            </a>
+            <!--Pinterest-->
+            <a class="pin-ic">
+              <i class="link fab fa-pinterest fa-lg white-text"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 - Lucy Brandão</div>
+  </footer>
 </body>
 </html>
+
+<style>
+    .link { color: white }
+
+    @media (max-width: 576px) {
+        .category-menu {display: none;}
+    }
+
+    @media (max-width: 768px) {
+        .category-menu {display: none;}
+    }
+
+    @media (min-width: 992px) { }
+
+    @media (min-width: 1200px) { }
+</style>
