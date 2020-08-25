@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row align-items-start my-content">
             {% for product in object_list %}
-                <div class="card m-3 my-card" style="width: 18rem;">
+                <div class="card m-3 my-card" style="width: 20rem;">
                     <img class="card-img-top" src="{{ product.photo.url }}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">{{ product.name }}</h5>
@@ -34,8 +34,4 @@
         .category-menu {display: none;}
         .my-content { text-align: center }
     }
-
-    @media (min-width: 992px) { }
-
-    @media (min-width: 1200px) { }
 </style>
