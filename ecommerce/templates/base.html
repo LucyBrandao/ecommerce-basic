@@ -15,7 +15,15 @@
 <body class="d-flex flex-column min-vh-100">
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-info pt-2 justify-between mb-3">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
                 <span class="navbar-toggler-icon"></span>
             </button>
             <a class="navbar-brand pb-2" href="#">E-commerce</a>
@@ -33,6 +41,9 @@
                     <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                     </li>
+                    <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Carrinho</a>
+                    </li> -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">Logout</a>
@@ -58,42 +69,15 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-9">
+        <div class="col-xl-9 col-12">
             {% block content %}
             {% endblock content %}
         </div>
         
     </main>
 
-<footer class="page-footer font-small indigo bg-dark text-white mt-auto">
+  <footer class="page-footer font-small indigo bg-dark text-white mt-auto">
     <div class="container">
-      <!-- <div class="row text-center d-flex justify-content-center pt-5 mb-3">
-        <div class="col-md-2 mb-3">
-          <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">About us</a>
-          </h6>
-        </div>
-        <div class="col-md-2 mb-3">
-          <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">Products</a>
-          </h6>
-        </div>
-        <div class="col-md-2 mb-3">
-          <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">Awards</a>
-          </h6>
-        </div>
-        <div class="col-md-2 mb-3">
-          <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">Help</a>
-          </h6>
-        </div>
-        <div class="col-md-2 mb-3">
-          <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">Contact</a>
-          </h6>
-        </div>
-      </div> -->
       <hr class="rgba-white-light" style="margin: 0 15%;">
       <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
         <div class="col-md-8 col-12 mt-5">
@@ -108,26 +92,21 @@
       <div class="row pb-3">
         <div class="col-md-12">
           <div class="mb-5 flex-center text-white text-center">
-            <a class="fb-ic">
-              <i class="link fab fa-facebook-f fa-lg white-text mr-4"></i>
-            </a>
-            <!-- Twitter -->
-            <a class="tw-ic">
-              <i class="link fab fa-twitter fa-lg white-text mr-4"></i>
-            </a>
-            <!-- Google +-->
             <a class="gplus-ic">
               <i class="link fab fa-github fa-lg white-text mr-4"></i>
             </a>
-            <!--Linkedin -->
+            <a class="fb-ic">
+              <i class="link fab fa-facebook-f fa-lg white-text mr-4"></i>
+            </a>
+            <a class="tw-ic">
+              <i class="link fab fa-twitter fa-lg white-text mr-4"></i>
+            </a>
             <a class="li-ic">
               <i class="link fab fa-linkedin-in fa-lg white-text mr-4"></i>
             </a>
-            <!--Instagram-->
             <a class="ins-ic">
               <i class="link fab fa-instagram fa-lg white-text mr-4"></i>
             </a>
-            <!--Pinterest-->
             <a class="pin-ic">
               <i class="link fab fa-gitlab fa-lg white-text"></i>
             </a>

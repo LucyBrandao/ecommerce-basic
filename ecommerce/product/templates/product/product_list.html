@@ -2,9 +2,9 @@
 
 {% block content %}
     <div class="container-fluid">
-        <div class="row align-items-start my-content">
+        <div class="row align-items-start my-content justify-content-lg-start justify-content-center">
             {% for product in object_list %}
-                <div class="card m-3 my-card" style="width: 20rem;">
+                <div class="card m-3 col-xl-3 col-md-5 col-10 my-card">
                     <img class="card-img-top" src="{{ product.photo.url }}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">{{ product.name }}</h5>

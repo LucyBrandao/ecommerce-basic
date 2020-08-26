@@ -17,7 +17,7 @@
     <main class="container-fluid row">
         <div class="col">
             <h2 class="mb-none mt-none text-center col-4 mx-auto">Login</h2>
-            <form method="POST" class="my-5 col-4 mx-auto">{% csrf_token %}
+            <form method="POST" class="my-5 col-md-4 col-10 mx-auto">{% csrf_token %}
                 <div>
                     {{ form.username | as_crispy_field }}
                 </div>
